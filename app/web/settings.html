@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Settings</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="settings-shell">
+      <section class="panel brand">
+        <div class="topbar">
+          <h1>Model Settings</h1>
+          <a class="link-btn" href="/">Sohbete Don</a>
+        </div>
+        <p>Sadece bizim katalogumuzdaki modeller indirilebilir.</p>
+        <div class="status-row">
+          <span class="label">Aktif Model</span>
+          <span id="settings-active-model" class="badge neutral">Yukleniyor</span>
+        </div>
+      </section>
+
+      <section class="panel settings-grid">
+        <div>
+          <h3>Katalog Modelleri (indir)</h3>
+          <div id="catalog-list" class="settings-list"></div>
+        </div>
+
+        <div>
+          <h3>Kurulu Modeller</h3>
+          <label>
+            Secili Model
+            <select id="installed-model-select"></select>
+          </label>
+          <div class="settings-actions">
+            <button id="activate-installed-btn" type="button">Aktif Et</button>
+            <button id="delete-installed-btn" type="button" class="warn">Sil</button>
+            <button id="refresh-installed-btn" type="button">Yenile</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Durum</h3>
+        <div id="settings-result" class="hint">Hazir.</div>
+      </section>
+    </main>
+
+    <script src="/assets/settings.js" defer></script>
+  </body>
+</html>

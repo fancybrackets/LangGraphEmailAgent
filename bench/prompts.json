@@ -1,0 +1,24 @@
+{
+  "prompts": [
+    "Merhaba, kisaca kendini tanit.",
+    "Bugun icin 3 maddelik bir calisma plani olustur.",
+    "Asagidaki metni tek cumlede ozetle: Yapay zeka arastirmasi hizla gelisiyor.",
+    "Kisa bir tesekkur e-postasi taslagi yaz.",
+    "Bir toplanti notu icin aksiyon maddeleri cikar.",
+    "Bu cumleyi daha resmi yap: yarin goruselim.",
+    "Asagidaki metni iki madde halinde ozetle: Proje gizlilik odakli ve yerelde calisir.",
+    "Python'da list comprehension nedir, bir ornek ver.",
+    "Sana bir gorev verdigimde nasil adim adim ilerlersin?",
+    "Kisa bir motivasyon mesaji yaz.",
+    "Bir e-postayi nazikce reddeden cevap yaz.",
+    "Ayni bilgiyi teknik olmayan birine anlat.",
+    "Asagidaki metinden anahtar kelimeleri cikar: yerel model, gizlilik, e-posta, ozet.",
+    "Takim ici durum guncellemesi icin 4 satirlik metin yaz.",
+    "Haftalik hedefleri takip etmek icin basit bir tablo oner.",
+    "Asagidaki soruya tek paragrafla cevap ver: Neden cevrimdisi sistem?",
+    "Bir kullanicidan eksik bilgi istemek icin kibar bir mesaj yaz.",
+    "Bir fikri arti ve eksi yonleriyle degerlendir.",
+    "Asagidaki metni daha acik yaz: Model secimi performansi etkiler.",
+    "Bugunku isi bitirirken yarin icin kisa bir not birak."
+  ]
+}

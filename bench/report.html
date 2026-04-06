@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benchmark Report</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #17223b;
+      --muted: #52657a;
+      --bar: #2b6cb0;
+      --bar-soft: #d9e7f7;
+      --border: #dde5ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+    h1, h2, h3 { margin: 0 0 12px; }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 90px;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    .track {
+      height: 10px;
+      border-radius: 999px;
+      background: var(--bar-soft);
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: var(--bar);
+    }
+    .value {
+      text-align: right;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .empty {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+    }
+    th {
+      background: #f2f6fc;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Benchmark Report</h1>
+    <div class="meta">
+      <div>Generated: 2026-03-29T01:06:47</div>
+      <div>Summary CSV: /Users/muhittinkeser/Downloads/Whisper/local_agent_step_by_step/step_13_model_panel_and_chat_sidebar/bench/summary.csv</div>
+      <div>Results CSV: /Users/muhittinkeser/Downloads/Whisper/local_agent_step_by_step/step_13_model_panel_and_chat_sidebar/bench/results.csv</div>
+    </div>
+
+    <div class="metrics">
+      <section class='metric-card'><h3>Average Latency</h3><div class='bar-row'><div class='label'>llama3.2:1b</div><div class='track'><div class='fill' style='width:29.97%'></div></div><div class='value'>5302.32 ms</div></div><div class='bar-row'><div class='label'>llama3.2:3b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>17694.84 ms</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:0.5b</div><div class='track'><div class='fill' style='width:8.97%'></div></div><div class='value'>1586.39 ms</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:1.5b</div><div class='track'><div class='fill' style='width:19.81%'></div></div><div class='value'>3504.54 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:0.5b</div><div class='track'><div class='fill' style='width:26.51%'></div></div><div class='value'>4690.37 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:1.5b</div><div class='track'><div class='fill' style='width:43.05%'></div></div><div class='value'>7618.21 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:3b</div><div class='track'><div class='fill' style='width:95.40%'></div></div><div class='value'>16881.43 ms</div></div></section>
+      <section class='metric-card'><h3>P95 Latency</h3><div class='bar-row'><div class='label'>llama3.2:1b</div><div class='track'><div class='fill' style='width:25.39%'></div></div><div class='value'>14692.43 ms</div></div><div class='bar-row'><div class='label'>llama3.2:3b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>57864.81 ms</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:0.5b</div><div class='track'><div class='fill' style='width:6.28%'></div></div><div class='value'>3632.38 ms</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:1.5b</div><div class='track'><div class='fill' style='width:11.50%'></div></div><div class='value'>6656.59 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:0.5b</div><div class='track'><div class='fill' style='width:22.70%'></div></div><div class='value'>13134.40 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:1.5b</div><div class='track'><div class='fill' style='width:45.76%'></div></div><div class='value'>26477.96 ms</div></div><div class='bar-row'><div class='label'>qwen2.5:3b</div><div class='track'><div class='fill' style='width:76.33%'></div></div><div class='value'>44167.87 ms</div></div></section>
+      <section class='metric-card'><h3>Success Rate</h3><div class='bar-row'><div class='label'>gemma3:4b-it-qat</div><div class='track'><div class='fill' style='width:0.00%'></div></div><div class='value'>0.00 %</div></div><div class='bar-row'><div class='label'>llama3.2:1b</div><div class='track'><div class='fill' style='width:96.67%'></div></div><div class='value'>96.67 %</div></div><div class='bar-row'><div class='label'>llama3.2:3b</div><div class='track'><div class='fill' style='width:91.67%'></div></div><div class='value'>91.67 %</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:0.5b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>100.00 %</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:1.5b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>100.00 %</div></div><div class='bar-row'><div class='label'>qwen2.5:0.5b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>100.00 %</div></div><div class='bar-row'><div class='label'>qwen2.5:1.5b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>100.00 %</div></div><div class='bar-row'><div class='label'>qwen2.5:3b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>100.00 %</div></div></section>
+      <section class='metric-card'><h3>Average RAM Usage</h3><div class='bar-row'><div class='label'>gemma3:4b-it-qat</div><div class='track'><div class='fill' style='width:64.12%'></div></div><div class='value'>94.63 MB</div></div><div class='bar-row'><div class='label'>llama3.2:1b</div><div class='track'><div class='fill' style='width:90.87%'></div></div><div class='value'>134.11 MB</div></div><div class='bar-row'><div class='label'>llama3.2:3b</div><div class='track'><div class='fill' style='width:53.76%'></div></div><div class='value'>79.34 MB</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:0.5b</div><div class='track'><div class='fill' style='width:94.90%'></div></div><div class='value'>140.06 MB</div></div><div class='bar-row'><div class='label'>qwen2.5-coder:1.5b</div><div class='track'><div class='fill' style='width:87.98%'></div></div><div class='value'>129.85 MB</div></div><div class='bar-row'><div class='label'>qwen2.5:0.5b</div><div class='track'><div class='fill' style='width:100.00%'></div></div><div class='value'>147.59 MB</div></div><div class='bar-row'><div class='label'>qwen2.5:1.5b</div><div class='track'><div class='fill' style='width:83.62%'></div></div><div class='value'>123.41 MB</div></div><div class='bar-row'><div class='label'>qwen2.5:3b</div><div class='track'><div class='fill' style='width:52.06%'></div></div><div class='value'>76.83 MB</div></div></section>
+    </div>
+
+    <h2>Summary Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Total Requests</th>
+          <th>Avg Latency (ms)</th>
+          <th>P95 Latency (ms)</th>
+          <th>Success Rate (%)</th>
+          <th>Error Rate (%)</th>
+          <th>Avg RAM (MB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>gemma3:4b-it-qat</td><td>60</td><td>-</td><td>-</td><td>0.00</td><td>100.00</td><td>94.63</td></tr><tr><td>llama3.2:1b</td><td>60</td><td>5302.32</td><td>14692.43</td><td>96.67</td><td>3.33</td><td>134.11</td></tr><tr><td>llama3.2:3b</td><td>60</td><td>17694.84</td><td>57864.81</td><td>91.67</td><td>8.33</td><td>79.34</td></tr><tr><td>qwen2.5-coder:0.5b</td><td>60</td><td>1586.39</td><td>3632.38</td><td>100.00</td><td>0.00</td><td>140.06</td></tr><tr><td>qwen2.5-coder:1.5b</td><td>60</td><td>3504.54</td><td>6656.59</td><td>100.00</td><td>0.00</td><td>129.85</td></tr><tr><td>qwen2.5:0.5b</td><td>60</td><td>4690.37</td><td>13134.40</td><td>100.00</td><td>0.00</td><td>147.59</td></tr><tr><td>qwen2.5:1.5b</td><td>60</td><td>7618.21</td><td>26477.96</td><td>100.00</td><td>0.00</td><td>123.41</td></tr><tr><td>qwen2.5:3b</td><td>60</td><td>16881.43</td><td>44167.87</td><td>100.00</td><td>0.00</td><td>76.83</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
