@@ -1,52 +1,52 @@
 # LangGraph Email Agent (Local, Privacy-First)
 
-Bu proje, **tamamen lokal calisan** bir LangGraph tabanli e-posta asistani ve sohbet arayuzudur.
-FastAPI backend, Ollama modelleri, IMAP e-posta araclari ve web UI birlikte calisir.
+This project is a **fully local** LangGraph-based email assistant with a chat interface.
+It combines a FastAPI backend, Ollama models, IMAP email tools, and a web UI.
 
-## Proje Ozeti
+## Project Overview
 
-Sistem iki ana ihtiyaci cozer:
+The system solves two core needs:
 
-1. Lokal LLM ile sohbet ve arac kullanan agent akisi
-2. E-posta kutusu uzerinde operasyonel otomasyon (listeleme, ozetleme, attachment islemleri, taslak olusturma)
+1. Local LLM chat with a tool-using agent flow
+2. Operational email automation on your mailbox (listing, summarizing, attachment workflows, draft generation)
 
-Araclar LangGraph icinde tool-calling ile kullanilir. Sohbetler thread mantiginda tutulur ve arayuzde ayrik oturumlar olarak yonetilir.
+Tools are used through LangGraph tool-calling. Conversations are managed by thread and shown as separate sessions in the UI.
 
-## Baslica Ozellikler
+## Key Features
 
-- Lokal ve privacy-first calisma (Ollama + yerel servis)
-- Sol panelde coklu sohbet oturumu ve otomatik sohbet basliklari
-- Agent tarafinda LangGraph + MemorySaver ile thread bazli baglam
-- IMAP araclari ile okunmamis mailleri listeleme
-- IMAP araclari ile UID bazli mail ozetleme
-- IMAP araclari ile aksiyon maddesi ve deadline benzeri kaliplari cikarma
-- IMAP araclari ile ek dosya listesi alma
-- IMAP araclari ile konuya gore mail metadata export etme
-- IMAP araclari ile konuya gore attachment kaydetme
-- IMAP araclari ile kullanici stiline yakin e-posta taslagi olusturma
-- Model Settings ekraninda katalogdan model indirme
-- Model Settings ekraninda kurulu modeli silme
-- Model Settings ekraninda aktif modeli degistirme
-- Benchmark modulu ile coklu model karsilastirmasi
-- Benchmark modulu ile CSV ozetleri ve Markdown/HTML rapor uretimi
+- Local, privacy-first workflow (Ollama + local services)
+- Multi-conversation sidebar with auto-generated chat titles
+- LangGraph + MemorySaver thread-based context handling
+- IMAP tools for listing unread emails
+- IMAP tools for UID-based email summarization
+- IMAP tools for extracting action items and deadline-like patterns
+- IMAP tools for listing email attachments
+- IMAP tools for exporting email metadata by topic
+- IMAP tools for saving attachments by topic
+- IMAP tools for drafting emails in a style similar to user history
+- Model Settings page for downloading models from catalog
+- Model Settings page for deleting installed models
+- Model Settings page for switching active model
+- Benchmark module for multi-model comparison
+- Benchmark module for CSV summaries and Markdown/HTML reports
 
-## Mimari
+## Architecture
 
-- `app/main.py`: FastAPI girisi, UI route'lari ve API router kaydi
-- `app/agent/graph.py`: LangGraph is akisi (agent -> tools -> agent)
-- `app/agent/tool_registry.py`: Agent arac katalogu
-- `app/agent/tools/email_tools.py`: IMAP tabanli email tool'lari
-- `app/services/ollama_service.py`: Ollama model yonetimi ve katalog dogrulamasi
-- `app/web/*`: Chat ve model ayarlari frontend'i
-- `bench/*`: Benchmark ve raporlama scriptleri
+- `app/main.py`: FastAPI entrypoint, UI routes, and API router registration
+- `app/agent/graph.py`: LangGraph workflow (agent -> tools -> agent)
+- `app/agent/tool_registry.py`: Agent tool catalog
+- `app/agent/tools/email_tools.py`: IMAP-based email tools
+- `app/services/ollama_service.py`: Ollama model management and catalog validation
+- `app/web/*`: Chat and model settings frontend
+- `bench/*`: Benchmark and reporting scripts
 
-## Gereksinimler
+## Requirements
 
 - Python 3.10+
-- [Ollama](https://ollama.com/) kurulu ve calisiyor olmasi
-- IMAP destekli bir e-posta hesabi (email araclarini kullanacaksan)
+- [Ollama](https://ollama.com/) installed and running
+- An IMAP-enabled email account (if you want to use email tools)
 
-## Kurulum
+## Setup
 
 ```bash
 cd LocalAgentDissertation
@@ -56,62 +56,62 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-`.env` dosyasini kendi bilgilerinizle duzenleyin.
+Update `.env` with your own values.
 
-## Ortam Degiskenleri
+## Environment Variables
 
-| Degisken | Aciklama | Varsayilan |
+| Variable | Description | Default |
 |---|---|---|
-| `APP_NAME` | API basligi | `Step 13 Model Panel API` |
-| `PRIVACY_MODE` | `/health` icinde privacy modu bilgisi | `true` |
-| `OLLAMA_BASE_URL` | Ollama taban URL | `http://127.0.0.1:11434` |
-| `DEFAULT_MODEL` | Varsayilan model | `qwen2.5:7b` |
-| `IMAP_HOST` | IMAP sunucu host'u | bos |
-| `IMAP_USER` | IMAP kullanici | bos |
-| `IMAP_PASSWORD` | IMAP sifre/app password | bos |
-| `IMAP_FOLDER` | Okuma klasoru | `INBOX` |
-| `IMAP_SENT_FOLDER` | Giden klasoru (stil analizi) | `Sent` |
+| `APP_NAME` | API title | `Step 13 Model Panel API` |
+| `PRIVACY_MODE` | Exposed in `/health` | `true` |
+| `OLLAMA_BASE_URL` | Ollama base URL | `http://127.0.0.1:11434` |
+| `DEFAULT_MODEL` | Default model name | `qwen2.5:7b` |
+| `IMAP_HOST` | IMAP server host | empty |
+| `IMAP_USER` | IMAP username | empty |
+| `IMAP_PASSWORD` | IMAP password/app password | empty |
+| `IMAP_FOLDER` | Inbox folder | `INBOX` |
+| `IMAP_SENT_FOLDER` | Sent folder (for style analysis) | `Sent` |
 
-## Calistirma
+## Run
 
 ```bash
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8013 --env-file .env
 ```
 
-Arayuz ve dokuman:
+UI and docs:
 
 - Chat UI: `http://127.0.0.1:8013/`
 - Model Settings: `http://127.0.0.1:8013/settings`
 - Swagger: `http://127.0.0.1:8013/docs`
 
-## API Uclari
+## API Endpoints
 
 - `GET /health`
 - `GET /tools`
 - `POST /chat`
 - `GET /models/catalog`
 - `GET /models`
-- `POST /models/pull` (yalniz katalogdaki modeller)
+- `POST /models/pull` (catalog models only)
 - `POST /models/delete`
 - `GET /models/active`
 - `POST /models/active`
 
-## Ornek Kullanim Akisi
+## Example Usage Flow
 
-1. `/settings` ekraninda katalogdan bir model indirin.
-2. Indirdiginiz modeli aktif hale getirin.
-3. `/` ekranina donup yeni sohbet olusturun.
-4. Agent'a mail odakli prompt verin. Ornekler: `Son 5 okunmamis maili listele`, `UID 1234 mailini ozetle`, `Konu: invoice olan maillerin eklerini kaydet`.
+1. Open `/settings` and download a model from the catalog.
+2. Set that model as active.
+3. Return to `/` and start a new chat.
+4. Ask email-focused prompts, such as: `List the last 5 unread emails`, `Summarize email UID 1234`, `Save attachments for topic: invoice`.
 
-## Benchmark ve Raporlama
+## Benchmark and Reporting
 
-Benchmark scripti, uygun modeller icin `/chat` endpoint'ine test istekleri atar ve su metrikleri toplar:
+The benchmark script sends test requests to `/chat` for eligible models and collects:
 
 - latency
 - success/error rate
-- yaklasik RAM/CPU kullanim ortalamasi
+- approximate RAM/CPU averages
 
-Calistirma:
+Run:
 
 ```bash
 source .venv/bin/activate
@@ -119,21 +119,21 @@ python bench/run_benchmark.py
 python bench/generate_report.py
 ```
 
-Uretilen dosyalar:
+Generated files:
 
 - `bench/results.csv`
 - `bench/summary.csv`
 - `bench/report.md`
 - `bench/report.html`
 
-## Gizlilik Notu
+## Privacy Notes
 
-Bu proje lokal calisma odaklidir; yine de IMAP araclari gercek e-posta verisiyle calisacagi icin:
+This project is local-first, but IMAP tools still process real email data, so:
 
-- `.env` dosyasini kesinlikle repoya eklemeyin
-- app password kullanin (hesap ana sifresi yerine)
-- export dosyalarini (`email_exports/` benzeri klasorler) paylasmadan once kontrol edin
+- never commit `.env`
+- use app passwords instead of your primary account password
+- review exported data (`email_exports/` style folders) before sharing
 
-## Lisans
+## License
 
-Bu depoda lisans dosyasi bulunmuyor. Acik kaynak dagitim planlaniyorsa uygun bir `LICENSE` eklenmesi onerilir.
+There is currently no license file in this repository. If you plan open-source distribution, add an appropriate `LICENSE` file.
